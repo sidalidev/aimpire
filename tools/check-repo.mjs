@@ -64,7 +64,12 @@ const suivis = execFileSync('git', ['ls-files'], { cwd: racine, encoding: 'utf8'
 const interdits = suivis.filter((f) => /(^|\/)(CLAUDE\.md|AGENTS\.md|\.claude\/|\.cursor(\/|rules$|$)|NUIT-)/i.test(f));
 if (interdits.length) ko(`tracked assistant files: ${interdits.join(', ')}`); else ok('no assistant files tracked');
 // "/Users/" is matched with its case (tests use lowercased fake paths); the rest in any case.
-const PERSO = ['/users/sidali', '/home/sid', 'dockerbop', 'mybops', '@gmail.com', 'lector-vault'];
+// Extra private markers (your user name, server paths, private project names) go in tools/perso.local.txt, one per
+// line. That file is ignored by git, so the markers themselves never become public.
+const fichierPerso = path.join(racine, 'tools/perso.local.txt');
+const PERSO = ['@gmail.com', ...(fs.existsSync(fichierPerso)
+  ? fs.readFileSync(fichierPerso, 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'))
+  : [])];
 const chemins = [...new Set([
   ...grep(['-F', '-e', '/Users/', '--', '.', ceFichier]),
   ...grep(['-i', '-F', ...PERSO.flatMap((m) => ['-e', m]), '--', '.', ceFichier]),

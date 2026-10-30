@@ -32,3 +32,6 @@ godot/assets/voix/*.mp3
 godot/assets/voix/*.mp3.import
 # relay releases folder (deploy/relay-compose.yml default)
 /deploy/releases/
+
+# private markers for tools/check-repo.mjs, never committed
+tools/perso.local.txt

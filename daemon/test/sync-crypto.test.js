@@ -81,7 +81,7 @@ test('blob altéré, mauvaise clé ou mauvais format : refusé', () => {
 test('aller-retour avec un secret aléatoire et un iv aléatoire', () => {
   const s = genererSecret();
   const k = deriveKeys(s);
-  const etat = { type: 'etat', ts: Date.now(), etat: { villages: [{ id: 'v', name: 'Été à Fos', buildings: [] }], tick: 42 } };
+  const etat = { type: 'etat', ts: Date.now(), etat: { villages: [{ id: 'v', name: 'Été à Rome', buildings: [] }], tick: 42 } };
   for (const gzip of [false, true]) {
     const a = encryptJson(k, etat, { gzip }), b = encryptJson(k, etat, { gzip });
     assert.notEqual(hex(a), hex(b)); // iv différent à chaque fois
