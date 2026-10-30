@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.1 (2026-10-30): open source release
+- AImpire is open source: the game, the local server and the tools are under the MIT license, the relay (`relay/`) under
+  the GNU AGPL v3.
+- The relay address is configurable: on the Mac before creating a sync chain, on the phone from the pairing screen. You
+  can run your own relay with `relay/server.js` or `deploy/relay-compose.yml`.
+- Villager voices are no longer shipped: `tools/gen-voices.mjs` generates them locally with your own ElevenLabs key.
+  Without them the villagers stay silent and only show their speech bubble.
+- Documentation in English: README, SECURITY, PRIVACY, CONTRIBUTING, threat model and install skill.
+- Android: version code 11.
+
 ## 0.8.0 (2026-10-27): roman gold, light and dark
 - New icon: a rounded temple drawn in dark ink on roman gold, flat. Android has an adaptive icon with a monochrome layer
   for themed icons; the Mac icon is redrawn at every size with macOS corners.

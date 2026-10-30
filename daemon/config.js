@@ -7,5 +7,5 @@ export const SESSION_MAX_AGE = 120 * DAY;    // au-delà, la session n'est même
 export const SUB_MAX_AGE = 2 * 3600 * 1000;  // sous-agents : seulement les récents
 export const BUCKET = 10 * 60 * 1000;        // granularité de la nourriture : 10 min
 export const PORT = Number(process.env.AIMPIRE_PORT || 7777);
-export const VERSION = '0.8.0';
+export const VERSION = '0.8.1';
 export const SCHEMA = 1;
