@@ -1,0 +1,35 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  controles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Permissions, forbidden text, security review age, changelog, About texts
+        run: node tools/check-repo.mjs
+  serveur:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: cd daemon && node --test
+      - run: cd relay && node --test
+  godot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2
+        with: { version: 4.7.2, use-dotnet: false, include-templates: false }
+      - run: godot --headless --path godot --import
+      - name: Les scripts compilent
+        run: godot --headless --path godot --quit-after 2 2>&1 | tee /tmp/godot.log; ! grep -q "SCRIPT ERROR" /tmp/godot.log
+      - name: Mises à jour (relais local et faux update.json)
+        run: godot --headless --path godot -s tests/test_update.gd
+      - name: About, ce qui quitte l'appareil, tout effacer
+        run: godot --headless --path godot -s tests/test_about.gd

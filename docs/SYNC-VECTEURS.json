@@ -1,0 +1,130 @@
+{
+  "description": "Vecteurs de la chaîne de sync AImpire (docs/SYNC.md). Générés par daemon/scripts/genere-vecteurs-sync.js ; vérifiés par daemon/test/sync-crypto.test.js et godot/tests/test_sync_crypto.gd.",
+  "secret_hex": "000102030405060708090a0b0c0d0e0f",
+  "id": "b054a86b0e7d1a0329b8dcb1939cf07e",
+  "jeton_ecriture": "86724ad799f080ed0a64e79b47908a23f5a06208599643adf6c806ab0f06bdcc",
+  "empreinte_jeton": "d2e73af463cfa9abcca34b2ac21437bfe695f839282d448d57f5eff7ece44c8d",
+  "k_enc_hex": "11242c6583aef351d05dbd90d508b58a77cea8b0cb553c2f2b7af43fad3c1d5b",
+  "k_mac_hex": "8aeb7857c1e32b34c9e9118f28bcf25921d504b7ce5cd6347d19e38690151163",
+  "mots": [
+    "abandon",
+    "amount",
+    "liar",
+    "amount",
+    "expire",
+    "adjust",
+    "cage",
+    "candy",
+    "arch",
+    "gather",
+    "drum",
+    "buyer"
+  ],
+  "lien": "https://aimpire.sidali.dev/#s=AAECAwQFBgcICQoLDA0ODw",
+  "blob": {
+    "iv_hex": "00112233445566778899aabbccddeeff",
+    "clair": "{\"tick\":1,\"villages\":[]}",
+    "chiffre_hex": "8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e6",
+    "mac_hex": "07e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8a",
+    "blob_hex": "0100112233445566778899aabbccddeeff8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8a",
+    "blob_base64": "AQARIjNEVWZ3iJmqu8zd7v+NSuxD10FaQY/zp4K47AxxVmH8wEaef3j8oevOL/8F5gfpgaEilftjTwkZtxziT2U5kZMz7Vb2slObPts+Uv6K"
+  },
+  "blob_gzip": {
+    "iv_hex": "ffeeddccbbaa99887766554433221100",
+    "objet": {
+      "type": "etat",
+      "ts": 1760000000000,
+      "etat": {
+        "tick": 1,
+        "villages": []
+      }
+    },
+    "gzip_hex": "1f8b0800000000000003ab562aa92c4855b2524a2d492c51d2512a2956b23234373380031d888c55b552496672b69295a18e5259664e4e627a6ab19255746c6d2d0007e71c3842000000",
+    "blob_hex": "01ffeeddccbbaa99887766554433221100d9e1a92c76a173192a8b54beb061bfe75ecb3e330e1d3e134fb5e515ce1445c2d0cb80f15a967e05e6549f622be2f87d8d5966b5eafd414d92cb1a27cb46f47f26e7d138709e320e8dd064c4d04711c24fd185d29716049b9059f0fb56484636932acc2be1608dca7a4819d672f98592"
+  },
+  "blob_bourre": {
+    "iv_hex": "0123456789abcdef0123456789abcdef",
+    "palier": 256,
+    "objet": {
+      "type": "etat",
+      "ts": 1760000000000,
+      "etat": {
+        "tick": 1,
+        "villages": []
+      }
+    },
+    "gzip_hex": "1f8b0804000000000003b3004150af0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ab562aa92c4855b2524a2d492c51d2512a2956b23234373380031d888c55b552496672b69295a18e5259664e4e627a6ab19255746c6d2d0007e71c3842000000",
+    "blob_hex": "010123456789abcdef0123456789abcdeff60ede1a7d9693e658345ede53b32e03d5e8ad3d4fc5625e1797ca78ef2bf200f8c0a53f04a95b9d2962b6177dd3a040ac97f3055556decb881e0ab1dd9896a293d0d225137b64cd7fb30a79010d9909274ed77d1ab818ee229fadafe8198153f7aaa0a3a1473a05bb250353ebdff83964008525ad5eaaf1954ab0f30ea4403261b4e947e53930566a2f001f9cb8de5d12bc6d3fdd2ac637ae3a3c2b67085f45302149d162c8167d477aa850113fdad0ddecf3d853fa1ac795185aac3746b4343b90ebbd19530a7bb9ff96388003a6cd75e90f4cd423412c3cf22ef757d9b5ad84e8eced631d4afe8039f8927d013e538c63d9e635416c30006924b3485224bd0a2ece0b80a8ededff0a328ea19cd78e15837dd9baedcf6dc6fb1a9065bbe39c"
+  },
+  "blob_commande": {
+    "iv_hex": "0f0e0d0c0b0a09080706050403020100",
+    "objet": {
+      "type": "cmd",
+      "ts": 1760000000000,
+      "nonce": "000102030405060708090a0b0c0d0e0f",
+      "action": "construire",
+      "id": "colisee"
+    },
+    "blob_hex": "010f0e0d0c0b0a0908070605040302010064d3fcb3cf245707a269d4140096bce7bc5e96092624b024860c8766b9975b292736c23deea903efdd79c9325e8d23609454ba579cff3d6f895987e7ff07a5b1140cb3def4b4a453f39f8c712d298f54c58e82a32dafd8aa38cece84b77aaf7e2c16597276fac57af6ed3c61b3dd276a155f028fc6e896f5b189f6969473f068dee03a060c7cc1eaa0a1999911fccd34440d00acbc616899aa7a5b7fffd4fc43"
+  },
+  "negatifs": {
+    "mac_faux_hex": "0100112233445566778899aabbccddeeff8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8b",
+    "chiffre_modifie_hex": "0100112233445566778899aabbccddeeff8d4aecc3d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8a",
+    "iv_modifie_hex": "0101112233445566778899aabbccddeeff8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8a",
+    "version_inconnue_hex": "0200112233445566778899aabbccddeeff8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f6539919333ed56f6b2539b3edb3e52fe8a",
+    "trop_court_hex": "0100112233445566778899aabbccddeeff8d4aec43d7415a418ff3a782b8ec0c715661fcc0469e7f78fca1ebce2fff05e607e981a12295fb634f0919b71ce24f",
+    "autre_cle_hex": "0100112233445566778899aabbccddeeffb3e224c8febeeefeffc11e8fd8519eb86cb42a881e08088a1094db7da6b8a6554ac647af7f6dbe3ead0a2a1a62ae7180b3fe6e47134ad447afcd088cdfe0f7e5"
+  },
+  "hkdf_rfc5869": [
+    {
+      "cas": "RFC 5869 A.1",
+      "ikm_hex": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+      "sel_hex": "000102030405060708090a0b0c",
+      "info_hex": "f0f1f2f3f4f5f6f7f8f9",
+      "longueur": 42,
+      "okm_hex": "3cb25f25faacd57a90434f64d0362f2a2d2d0a90cf1a5a4c5db02d56ecc4c5bf34007208d5b887185865"
+    },
+    {
+      "cas": "RFC 5869 A.3 (sel et info vides)",
+      "ikm_hex": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
+      "sel_hex": "",
+      "info_hex": "",
+      "longueur": 42,
+      "okm_hex": "8da4e775a563c18f715f802a063c5a31b8a11f5c5ee1879ec3454e5f3c738d2d9d201395faa4b61a96c8"
+    }
+  ],
+  "bip39_officiels": [
+    {
+      "entropie_hex": "00000000000000000000000000000000",
+      "mots": "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about"
+    },
+    {
+      "entropie_hex": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f",
+      "mots": "legal winner thank year wave sausage worth useful legal winner thank yellow"
+    },
+    {
+      "entropie_hex": "80808080808080808080808080808080",
+      "mots": "letter advice cage absurd amount doctor acoustic avoid letter advice cage above"
+    },
+    {
+      "entropie_hex": "ffffffffffffffffffffffffffffffff",
+      "mots": "zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo zoo wrong"
+    },
+    {
+      "entropie_hex": "9e885d952ad362caeb4efe34a8e91bd2",
+      "mots": "ozone drill grab fiber curtain grace pudding thank cruise elder eight picnic"
+    }
+  ],
+  "mots_invalides": [
+    "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon",
+    "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about",
+    "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon aimpire"
+  ],
+  "liens_invalides": [
+    "https://aimpire.sidali.dev/",
+    "https://aimpire.sidali.dev/#s=",
+    "https://aimpire.sidali.dev/#s=AAECAwQFBgcICQoLDA0O",
+    "https://aimpire.sidali.dev/#s=AAECAwQFBgcICQoLDA0ODxA",
+    "https://aimpire.sidali.dev/#s=AAECAwQFBgcICQoLDA0OD$"
+  ]
+}

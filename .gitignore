@@ -1,0 +1,34 @@
+# données perso (vivent dans ~/Library/Application Support/AImpire, jamais ici)
+cache.json
+save.json
+save*.bak
+aimpire.json
+voix-cache/
+logs/
+*.log
+.env
+.env.*
+# build
+daemon/node_modules/
+godot/.godot/
+/build/
+dist/
+*.dmg
+*.zip
+# kits sources (seuls godot/assets/* servent)
+/assets/
+# système
+.DS_Store
+
+# musique perso non redistribuable
+godot/assets/music/local/
+.git-old/
+
+# fenêtre des captures en portrait (tools/capture-portrait.sh), jamais commitée
+godot/override.cfg
+
+# villager voices, generated locally by tools/gen-voices.mjs with your own ELEVENLABS_API_KEY
+godot/assets/voix/*.mp3
+godot/assets/voix/*.mp3.import
+# relay releases folder (deploy/relay-compose.yml default)
+/deploy/releases/

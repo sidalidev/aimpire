@@ -1,0 +1,9 @@
+{
+  "name": "aimpire-relay",
+  "version": "0.6.0",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node server.js", "test": "node --test" }
+}

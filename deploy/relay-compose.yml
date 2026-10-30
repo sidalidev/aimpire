@@ -1,0 +1,64 @@
+name: aimpire
+# AImpire sync relay (docs/SYNC.md section 4) behind a Traefik reverse proxy.
+# Required: an external Docker network "traefik_web" served by Traefik with a "letsencrypt" certificate resolver.
+# Variables (in the shell or in a .env file next to this compose file):
+#   AIMPIRE_RELAY_HOST     public host name of the relay, e.g. relay.example.org (required)
+#   AIMPIRE_RELEASES_DIR   folder holding update.json and the published packages (default deploy/releases)
+# On the server, from a clone of this repository:
+#   mkdir -p deploy/releases && AIMPIRE_RELAY_HOST=relay.example.org docker compose -f deploy/relay-compose.yml up -d --build
+# Published versions (update.json, macOS zip, APK) are dropped in the releases folder by tools/publier-maj.sh and
+# served read-only on /update.json and /download/<file>.
+services:
+  relay:
+    build:
+      context: ../relay
+    container_name: aimpire-relay
+    restart: unless-stopped
+    environment:
+      - PORT=7701
+      - AIMPIRE_RELAY_DATA=/data
+      # Behind Traefik: per-IP limits read the last hop of X-Forwarded-For.
+      - AIMPIRE_TRUST_PROXY=1
+      - AIMPIRE_RELEASES_DIR=/releases
+    volumes:
+      - relay_data:/data
+      - ${AIMPIRE_RELEASES_DIR:-./releases}:/releases:ro
+    read_only: true
+    # 500 chains of 256 KiB fit in 128 MiB; beyond the limit the container is killed and restarted, not the host.
+    mem_limit: 256m
+    pids_limit: 64
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7701/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    networks:
+      - traefik_web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_web"
+      - "traefik.http.services.aimpire-relay.loadbalancer.server.port=7701"
+
+      # HTTPS router
+      - "traefik.http.routers.aimpire-relay-secure.rule=Host(`${AIMPIRE_RELAY_HOST:?set AIMPIRE_RELAY_HOST}`)"
+      - "traefik.http.routers.aimpire-relay-secure.entrypoints=websecure"
+      - "traefik.http.routers.aimpire-relay-secure.tls=true"
+      - "traefik.http.routers.aimpire-relay-secure.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aimpire-relay-secure.service=aimpire-relay"
+
+      # HTTP router (redirects to HTTPS)
+      - "traefik.http.routers.aimpire-relay.rule=Host(`${AIMPIRE_RELAY_HOST:?set AIMPIRE_RELAY_HOST}`)"
+      - "traefik.http.routers.aimpire-relay.entrypoints=web"
+      - "traefik.http.routers.aimpire-relay.middlewares=aimpire-https-redirect"
+      - "traefik.http.middlewares.aimpire-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.aimpire-https-redirect.redirectscheme.permanent=true"
+
+volumes:
+  relay_data:
+
+networks:
+  traefik_web:
+    external: true
